@@ -163,7 +163,7 @@
                           <td>@{{::item.telefono}}</td>
                           <td>@{{::item.cupo}}</td>
                           <td>@{{::item.saldoCupo}}</td>
-                          <td><a data-toggle="modal" data-target="#myModalEditCliente" ng-click='$owner.editarPush(item)'><i class="fa fa-pencil" aria-hidden="true" id="iconoEditar"></i></a><a ng-click='$owner.eliminar(item)' id="iconoEliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                          <td><a data-toggle="modal" data-target="#myModalEditCliente" ng-click='$owner.editarPush(item)'><i class="fa fa-pencil" aria-hidden="true" id="iconoEditar"></i></a><a ng-click='$owner.eliminarCliente(item)' id="iconoEliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></a><a ng-click='$owner.eliminar(item)' id="iconoEliminar"><i class="fa fa-plus" aria-hidden="true"></i></a><span>Insertar Visita</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -263,6 +263,7 @@
         <h4 class="modal-title">Editar Plato</h4>
       </div>
       <form name="signup_form" class="" novalidate>
+      <input type="hidden" ng-model="cliente.idCliente"/>
         <div class="modal-body">
           <div class="form-group">
             <label for="exampleInputDato">Dato</label>
@@ -304,15 +305,15 @@
           </div>
           <div class="form-group">
             <label for="exampleInputNombreTelefono">Cupo</label>
-            <input type="text" step="0.01" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
+            <input type="enum" step="0.01" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
           </div>
           <div class="form-group">
             <label for="exampleInputNombreSaldoCupo">Saldo Cupo</label>
-            <input type="text" step="0.01" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
+            <input type="enum" step="0.01" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
           </div>
           <div class="form-group">
             <label for="exampleInputNombrePorcentajeVisitas">Porcentaje Visitas</label>
-            <input type="text" step="0.01" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
+            <input type="enum" step="0.01" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
           </div>
         </div>
         <div class="modal-footer">

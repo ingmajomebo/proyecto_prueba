@@ -22,8 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //RUTAS DE CLIENTE
 
 Route::get('/ObtenerClientes','ClienteController@ObtenerClientes');
-
 Route::post('/InsertarCliente','ClienteController@InsertarCliente');
+Route::post('/EditCliente','ClienteController@EditCliente');
+Route::post('/EliminarCliente','ClienteController@EliminarCliente');
 
 //RUTAS DE VISITA Y PAISES 
 

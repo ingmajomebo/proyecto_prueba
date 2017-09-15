@@ -145,7 +145,7 @@
 
                     <div class="card-body no-padding">
                     <div id="botonCrear">
-                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalNoticias" id="nuevoProducto">Nuevo</button>
+                       <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="botonNuevoCliente()" data-target="#myModalNoticias" id="nuevoProducto">Nuevo</button>
                     </div>
                       <table  object-table
                       data = "clientes"
@@ -163,7 +163,7 @@
                           <td>@{{::item.telefono}}</td>
                           <td>@{{::item.cupo}}</td>
                           <td>@{{::item.saldoCupo}}</td>
-                          <td></td>
+                          <td><a data-toggle="modal" data-target="#myModalEditCliente" ng-click='$owner.editarPush(item)'><i class="fa fa-pencil" aria-hidden="true" id="iconoEditar"></i></a><a ng-click='$owner.eliminar(item)' id="iconoEliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                         </tr>
                       </tbody>
                     </table>
@@ -235,15 +235,15 @@
           </div>
           <div class="form-group">
             <label for="exampleInputNombreTelefono">Cupo</label>
-            <input type="number" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
+            <input type="number" step="0.01" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
           </div>
           <div class="form-group">
             <label for="exampleInputNombreSaldoCupo">Saldo Cupo</label>
-            <input type="number" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
+            <input type="number" step="0.01" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
           </div>
           <div class="form-group">
             <label for="exampleInputNombrePorcentajeVisitas">Porcentaje Visitas</label>
-            <input type="number" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
+            <input type="number" step="0.01" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
           </div>
         </div>
         <div class="modal-footer">
@@ -253,6 +253,75 @@
       </form>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="myModalEditCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Editar Plato</h4>
+      </div>
+      <form name="signup_form" class="" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleInputDato">Dato</label>
+            <textarea class="form-control" id="dato" rows="3" ng-model="cliente.dato" autofocus required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNit">Nit</label>
+            <input type="text" class="form-control" id="nit"  ng-model="cliente.nit" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreCliente">Nombre Cliente</label>
+            <input type="text" class="form-control" id="nit"  ng-model="cliente.nombreCliente" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPais">Pais</label>
+            <select class="form-control" id="pais" ng-model="cliente.pais" required >
+             <option value="Colombia">Colombia</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputDepartamento">Departamento</label>
+            <select class="form-control" id="departamento" ng-model="cliente.departamento" required >
+             <option value="Magdalena">Magdalena</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputPais">Ciudad</label>
+            <select class="form-control" id="ciudad" ng-model="cliente.ciudad" required >
+             <option value="Santa marta">Santa marta</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputNombreDireccion">Direccion</label>
+            <input type="text" class="form-control" id="direccion"  ng-model="cliente.direccion" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreDireccion">Telefono</label>
+            <input type="text" class="form-control" id="telefono"  ng-model="cliente.telefono" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreTelefono">Cupo</label>
+            <input type="text" step="0.01" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreSaldoCupo">Saldo Cupo</label>
+            <input type="text" step="0.01" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombrePorcentajeVisitas">Porcentaje Visitas</label>
+            <input type="text" step="0.01" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-sm btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" ng-click="editarCliente()">Guardar</button>
+        </div>
+      </form>
+  </div>
+</div>
 </div>
 
 

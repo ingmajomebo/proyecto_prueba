@@ -24,3 +24,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/ObtenerClientes','ClienteController@ObtenerClientes');
 
 Route::post('/InsertarCliente','ClienteController@InsertarCliente');
+
+//RUTAS DE VISITA Y PAISES 
+
+Route::post('Visita/listVisita','VisitaController@listVisita');
+Route::post('Visita/storeVisita','VisitaController@storeVisita');
+Route::post('Visita/editVisita','VisitaController@editVisita');
+Route::post('Visita/eliminarVisita','VisitaController@eliminarVisita');
+
+Route::get('Pdc/listarPaises','ControlPdcController@listarPaises');
+Route::post('Pdc/listarDepartamento','ControlPdcController@listarDepartamento');
+Route::post('Pdc/listarCiudades','ControlPdcController@listarCiudades');

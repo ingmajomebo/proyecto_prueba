@@ -13,7 +13,12 @@ app.controller("controllerCliente",[ "$scope","$http","$window",function($scope,
     $scope.clientes = result.data.datos;
   });
 
+  $scope.botonNuevoCliente = function(){
+    $scope.cliente = "";
+  }
+
   $scope.insertarCliente = function(){
+
     $http.post("http://localhost/proyecto_prueba/public/InsertarCliente",$scope.cliente).then(function(result){
       if(result.data.success){
           $http.get("http://localhost/proyecto_prueba/public/ObtenerClientes").then(function(result){
@@ -23,6 +28,11 @@ app.controller("controllerCliente",[ "$scope","$http","$window",function($scope,
             alert(result.data.msg);
       }
     });    
+  }
+
+  $scope.editarPush = function(item){
+      $scope.cliente =  item;
+      
   }
 }]);
 

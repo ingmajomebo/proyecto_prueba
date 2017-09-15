@@ -11,9 +11,8 @@ class UsersTableSeeder extends Seeder {
 	public function run() {
 		$users = [
 			[
-				'nit'     => '123456',
-				'nombre'    => 'manuel',
-				'email' => 'email',
+				'nombreUsuario'    => 'manuel',
+				'email' => 'manuel@gmail.com',
 				'password' => Hash::make('123456789'),
 			]
 		];

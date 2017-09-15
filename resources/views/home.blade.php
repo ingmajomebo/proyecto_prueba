@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <title>Banshee S.A</title>
@@ -15,11 +15,9 @@
 
 
 </head>
-<body>
+<body ng-controller="controllerCliente">
   <div class="app app-default">
-      <input type="hidden" ng-model="rolUsuario" id="rolUsuario" value="{{Auth::user()->id}}">
-
-        <aside class="app-sidebar" id="sidebar">
+      <aside class="app-sidebar" id="sidebar">
                   <div class="sidebar-header">
                         <a class="sidebar-brand" href="#"><span class="highlight">Banshee S.A</span></a>
                         <strong class="sidebar-brand" style="margin-top: -58px;"></strong>
@@ -59,7 +57,10 @@
                     </ul>
                 </div>
         </aside>
-
+}
+}
+}
+}
 <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
         <div class="app-container">
 
@@ -84,7 +85,7 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="profile-info">
-                                      <h4 class="username">{{ Auth::user()->name }}</h4>
+                                      <h4 class="username">{{ Auth::user()->nombreUsuario }}</h4>
                                     </div>
                                   <ul class="action">
                                           <li>
@@ -137,13 +138,13 @@
                     </div>
                 </div>
 
+
             <div class="row">
               <footer class="app-footer">
                     <div class="row">
                           <div class="col-xs-12">
                             <div class="footer-copyright">
                             Desarrollo © 2017 Manuel Melgarejo.
-                              <div type="text" ng-init="idUsuario = {{ Auth::user()->id }}"></div>
                           </div>
                         </div>
                     </div>
@@ -155,15 +156,12 @@
 
 
     <script type="text/javascript" src="css/dashboardcss/js/vendor.js"></script>
-    <script type="text/javascript" src="css/dashboardcss/js/app.js"></script>
-    <script type="text/javascript" src="js/node_modules/push.js/push.min.js"></script>
-    <script type="text/javascript" src="js/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="css/dashboardcss/js/app.js"></script> 
+    <<script type="text/javascript" src="js/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="js/myAngular.js"></script>
     <script type="text/javascript" src="js/constants.js"></script>
-    <script type="text/javascript" src="js/node_modules/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="js/node_modules/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="js/node_modules/ionic-cache-src/ionic-cache-src.js"></script>
     <script type="text/javascript" src="js/build/object-table.js"></script>
+
 
 </body>
 </html>

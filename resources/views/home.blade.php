@@ -57,10 +57,7 @@
                     </ul>
                 </div>
         </aside>
-}
-}
-}
-}
+
 <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
         <div class="app-container">
 
@@ -138,7 +135,41 @@
                     </div>
                 </div>
 
+                <div class="col-xs-12">
+                  <div class="card">
+                    <div class="card-header">
+                      Noticias
+                    </div>
+                    <div class="alert alert-danger" ng-if="mensajeErrorCrearCuenta" ng-repeat="item in detalle"><span class="product-title" id="mensajesError">@{{ item[0] }}</span><br></div> 
+                    <div class="alert alert-info" style="display:none;" id="content"><strong>¡Bien hecho!</strong> Noticia Modificada Correctamente</div>
 
+                    <div class="card-body no-padding">
+                    <div id="botonCrear">
+                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalNoticias" id="nuevoProducto">Nuevo</button>
+                    </div>
+                      <table  object-table
+                      data = "clientes"
+                      display = "10"
+                      headers = "Nit, Nombre, Telefono, Cupo, Saldo Cupo,Accion"
+                      fields = "nit,nombreCliente,telefono,cupo,saldoCupo"
+                      sorting = "compound"
+                      editable = "true"
+                      resize="true"
+                      drag-columns="true">
+                      <tbody>
+                        <tr>
+                          <td>@{{::item.nit}}</td>
+                          <td>@{{::item.nombreCliente}}</td>
+                          <td>@{{::item.telefono}}</td>
+                          <td>@{{::item.cupo}}</td>
+                          <td>@{{::item.saldoCupo}}</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                </div>
             <div class="row">
               <footer class="app-footer">
                     <div class="row">
@@ -153,6 +184,76 @@
         </div>
     </div>
 
+
+<div class="modal fade" id="myModalNoticias" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Insertar Cliente</h4>
+      </div>
+      
+      <form name="signup_form" class="" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleInputDato">Dato</label>
+            <textarea class="form-control" id="dato" rows="3" ng-model="cliente.dato" autofocus required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNit">Nit</label>
+            <input type="text" class="form-control" id="nit"  ng-model="cliente.nit" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreCliente">Nombre Cliente</label>
+            <input type="text" class="form-control" id="nit"  ng-model="cliente.nombreCliente" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPais">Pais</label>
+            <select class="form-control" id="pais" ng-model="cliente.pais" required >
+             <option value="Colombia">Colombia</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputDepartamento">Departamento</label>
+            <select class="form-control" id="departamento" ng-model="cliente.departamento" required >
+             <option value="Magdalena">Magdalena</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputPais">Ciudad</label>
+            <select class="form-control" id="ciudad" ng-model="cliente.ciudad" required >
+             <option value="Santa marta">Santa marta</option>
+           </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exampleInputNombreDireccion">Direccion</label>
+            <input type="text" class="form-control" id="direccion"  ng-model="cliente.direccion" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreDireccion">Telefono</label>
+            <input type="text" class="form-control" id="telefono"  ng-model="cliente.telefono" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreTelefono">Cupo</label>
+            <input type="number" class="form-control" id="cupo"  ng-model="cliente.cupo" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombreSaldoCupo">Saldo Cupo</label>
+            <input type="number" class="form-control" id="saldoCupo"  ng-model="cliente.saldoCupo" ng-value="@{{cliente.cupo}}" disabled  />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputNombrePorcentajeVisitas">Porcentaje Visitas</label>
+            <input type="number" class="form-control" id="porcentajeVisitas"  ng-model="cliente.porcentajeVisitas"  required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-sm btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" ng-click="insertarCliente()">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
     <script type="text/javascript" src="css/dashboardcss/js/vendor.js"></script>

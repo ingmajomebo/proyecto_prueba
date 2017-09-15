@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//RUTAS DE CLIENTE
+
+Route::get('/ObtenerClientes','ClienteController@ObtenerClientes');
+
+Route::post('/InsertarCliente','ClienteController@InsertarCliente');

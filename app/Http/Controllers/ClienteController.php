@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente
+use App\Cliente;
 
 class ClienteController extends Controller
 {
@@ -19,11 +19,21 @@ class ClienteController extends Controller
 		$cliente->direccion = $request->direccion;
 		$cliente->telefono = $request->telefono;
 		$cliente->cupo = $request->cupo;
-		$cliente->saldoCupo = $request->saldoCupo;
+		$cliente->saldoCupo = $request->cupo;
 		$cliente->porcentajeVisitas = $request->porcentajeVisitas;
 
-		$cliente->save();
+		if($cliente->save()){
+			return response()->json(['success' => true, 'msg' => 'Seguardo Correctamente el cliente' ],200);
+		}else{
+			return response()->json(['success' => true, 'msg' => 'Hubo algún Error' ],500);
+		}
+    }
 
+    public function ObtenerClientes(){
+    	
+    	$clientes = Cliente::all();
+
+    	return response()->json(['success' => true, 'datos' => $clientes ],200);
 
     }
 }

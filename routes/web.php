@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/listarVisita',function(){
@@ -22,6 +22,7 @@ Route::get('/listarVisita',function(){
 Route::get('/reportes',function(){
 	return view('reporteSistema');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -40,9 +41,9 @@ Route::post('Visita/InsertarVisita','VisitaController@InsertarVisita');
 Route::post('Visita/editVisita','VisitaController@editVisita');
 Route::post('Visita/eliminarVisita','VisitaController@eliminarVisita');
 
-Route::get('Pdc/listarPaises','ControlPdcController@listarPaises');
-Route::post('Pdc/listarDepartamento','ControlPdcController@listarDepartamento');
-Route::post('Pdc/listarCiudades','ControlPdcController@listarCiudades');
+Route::get('Pdc/listarPaises','ControlPdcController@ObtenerPaises');
+Route::post('Pdc/listarDepartamento','ControlPdcController@ObtenerDepartamento');
+Route::post('Pdc/listarCiudades','ControlPdcController@ObtenerCiudades');
 
 Route::get('Reporte/CantidadVisitasPorCiudad','EstadisticasController@CantidadVisitasPorCiudad');
 Route::post('Reporte/CupoCliente','EstadisticasController@CupoCliente');

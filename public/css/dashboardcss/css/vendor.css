@@ -3198,8 +3198,8 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #fff;
-  background-color: #022b52;
-  border-color: #022b52;
+  background-color: #4da54d;
+  border-color: #479847;
 }
 .btn-success:active,
 .btn-success.active,

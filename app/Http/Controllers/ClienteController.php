@@ -11,7 +11,7 @@ class ClienteController extends Controller
     {
     	$cliente = new Cliente();
     	$cliente->dato = $request->dato;
-    	$cliente->nit =  Hash::make($request->nit);
+    	$cliente->nit =  encrypt($request->nit);
     	$cliente->nombreCliente = $request->nombreCliente;
     	$cliente->pais = $request->pais;
 		$cliente->departamento = $request->departamento;
@@ -65,8 +65,7 @@ class ClienteController extends Controller
     public function ObtenerClientes(){
     	
     	$clientes = Cliente::all();
-
-    	return response()->json(['success' => true, 'datos' => $clientes ],200);
+    	return response()->json(['success' => true, 'datos' => $clientes, 'nit' => decrypt($clientes[0]->nit) ],200);
 
     }
 }

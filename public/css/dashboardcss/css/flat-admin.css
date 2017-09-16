@@ -4170,9 +4170,7 @@ ui-view > .app-messaging-container {
     .btn.btn-primary:hover {
       box-shadow: 0 4px 6px rgba(9, 80, 119, 0.15); }
   .btn.btn-success {
-    border-color: #013e77;
-    border-bottom-color: #013e77;
-    background-color: #0254a0;
+
     box-shadow: 0 2px 3px rgba(243, 117, 51, 0.3); }
     .btn.btn-success:hover {
       box-shadow: 0 4px 6px rgba(243, 117, 51, 0.3); }
@@ -4515,7 +4513,7 @@ input ::-webkit-input-placeholder {
       background-color: #0254a0; }
 
 table.table > tbody > tr td, table.table > tbody > tr th, table.table > thead > tr td, table.table > thead > tr th {
-  font-size: 14px;
+  font-size: 13px;
   padding: 15px 30px; }
 
 table.table.card-table {
@@ -5789,11 +5787,6 @@ footer.app-footer {
   margin-bottom: -50px;
 }
 
-#nuevoProducto{
-  background-color: #0254a0;
-  border-bottom-color: #0254a;
-
-}
 
 #pdescripcion{
   width: 200px;
@@ -5806,13 +5799,12 @@ footer.app-footer {
 }
 
 #iconoEditar{
-  font-size: 47px;
-  padding-top: 22px;
+  font-size: 39px;
 }
 
 #iconoEliminar{
   margin-left: 10px;
-  font-size: 47px;
+  font-size: 39px;
   padding-top: 22px;
   color: red
 }

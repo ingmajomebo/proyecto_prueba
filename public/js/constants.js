@@ -1,6 +1,6 @@
 angular.module('myApp')
   
 .constant('API_ENDPOINT', {
-  url: 'http://186.118.161.93/'
+  url: 'http://handyprueba.tamaca.com.co/'
   //  For a simulator use: url: 'http://127.0.0.1:8080/api'
 });

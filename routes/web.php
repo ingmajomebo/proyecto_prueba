@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/listarVisita',function(){
+	return view('listadoVisitas');
+});
+
+Route::get('/reportes',function(){
+	return view('reporteSistema');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -28,11 +35,14 @@ Route::post('/EliminarCliente','ClienteController@EliminarCliente');
 
 //RUTAS DE VISITA Y PAISES 
 
-Route::post('Visita/listVisita','VisitaController@listVisita');
-Route::post('Visita/storeVisita','VisitaController@storeVisita');
+Route::get('Visita/listVisita','VisitaController@listVisita');
+Route::post('Visita/InsertarVisita','VisitaController@InsertarVisita');
 Route::post('Visita/editVisita','VisitaController@editVisita');
 Route::post('Visita/eliminarVisita','VisitaController@eliminarVisita');
 
 Route::get('Pdc/listarPaises','ControlPdcController@listarPaises');
 Route::post('Pdc/listarDepartamento','ControlPdcController@listarDepartamento');
 Route::post('Pdc/listarCiudades','ControlPdcController@listarCiudades');
+
+Route::get('Reporte/CantidadVisitasPorCiudad','EstadisticasController@CantidadVisitasPorCiudad');
+Route::post('Reporte/CupoCliente','EstadisticasController@CupoCliente');
